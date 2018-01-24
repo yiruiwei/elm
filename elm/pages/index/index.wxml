@@ -1,0 +1,30 @@
+<view class="container flex-wrap flex-direction-col">
+  <view class="product flex-wrap flex-direction-row">
+    <scroll-view scroll-y class="sidebar flex-wrap flex-direction-col">
+      <text wx:for="{{dataList}}" class="tapNav {{curNav === index?'selected':''}}" data-index="{{index}}" bindtap="selectNav">{{item.name}}</text>
+    </scroll-view>
+    <scroll-view scroll-y class="content flex-wrap flex-direction-col">
+      <view wx:for="{{dataList[curNav].foods}}" class="items  flex-wrap flex-direction-row">
+        <image class='food-pic' src="{{item.image}}"></image>
+        <view class="food-title flex-wrap flex-direction-col">
+          <text class="food-name">{{item.name}}</text>
+          <text wx:if="{{item.description}}" class="food-dec ccc">{{item.description}}</text>
+          <text wx:else="{{item.description}}" class="food-dec ccc">家常菜</text>
+          <text class="food-sellCount-rating ccc">月销售{{item.sellCount}}份 好评率{{item.rating}}%</text>
+          <text class="food-price">¥{{item.price}}</text>
+        </view>
+        <view class="food-buy flex-wrap flex-direction-row" >
+          <view class="settled" bindtap="curSub" data-index="{{index}}" >-</view>
+          <text>{{item.num}}</text>
+          <view class="settled" bindtap="curAdd" data-index="{{index}}">+</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="checkstand flex-wrap flex-direction-row">
+    <image class="shopping" src="../../images/shoppingCart.png"></image>
+    <text class="bill">¥{{total}}</text>
+    <button hover-class="settled" class="settle-accounts" bindtap="goAcc">去结算</button>
+  </view>
+
+</view>

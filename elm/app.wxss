@@ -1,0 +1,14 @@
+.container{
+  height:100%;
+  box-sizing: border-box; 
+}
+.flex-wrap{
+  display: flex;
+
+}
+.flex-direction-col{
+   flex-direction:column;
+}
+.flex-direction-row{
+   flex-direction:row;
+}
